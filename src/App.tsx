@@ -1,14 +1,14 @@
 import { Route, Routes } from "react-router";
 
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
-import AboutPage from "@/pages/about";
-import HomePage from "@/pages/home";
-import NotFoundPage from "@/pages/not-found";
+import Footer from "@/components/layout/Footer";
+import Header from "@/components/layout/Header";
+import AboutPage from "@/pages/AboutPage";
+import HomePage from "@/pages/HomePage";
+import NotFoundPage from "@/pages/NotFoundPage";
 
 const App = () => {
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col overflow-hidden">
       <Header />
       <main className="flex-1">
         <Routes>
