@@ -1,69 +1,59 @@
-
 # Expression Compiler
 
-This project is a simple expression compiler built for a university compiler course. It demonstrates the main stages of compilation for mathematical expressions:
+An expression compiler visualizer built with React and TypeScript for a university compiler course.
 
-- **Lexical Analysis**: Tokenizes the input string (identifiers, numbers, operators, parentheses, functions).
-- **Parsing**: Builds an Abstract Syntax Tree (AST) from the token stream.
-- **AST Visualization**: Shows the parse tree using a graphical tree view.
-- **Code Generation**: Produces three-address code (TAC) from the AST.
+**Live demo:** [Open on Vercel](https://expression-compiler.vercel.app)
+
+## Overview
+
+Created for a university compiler course to show how mathematical input becomes tokens, an abstract syntax tree, and three-address code.
 
 ## Features
 
-- Input and validate math expressions (supports variables, numbers, +, -, *, /, ^, parentheses, and `sqrt` function).
-- See the token list, transformed expression, parse tree, and generated TAC.
-- Compiler logic is isolated from the React interface and covered by unit tests.
-- Visualizes the parse tree using `react-d3-tree`.
-- Styled with Tailwind CSS.
+- Tokenize and validate identifiers, numbers, operators, parentheses, and root expressions.
+- Parse expressions with precedence and associativity rules.
+- Visualize the AST with react-d3-tree.
+- Generate three-address code and test the compiler pipeline with Vitest.
 
-## Main Packages Used
+## Tech stack
 
-- [React](https://react.dev/) — UI framework
-- [Vite](https://vitejs.dev/) — build tool and dev server
-- [Tailwind CSS](https://tailwindcss.com/) — utility-first CSS framework
-- [react-d3-tree](https://github.com/bkrem/react-d3-tree) — parse tree visualization
+React 19, TypeScript, Vite, Tailwind CSS, react-d3-tree, Vitest.
 
-## Getting Started
+## Run locally
 
-1. Install dependencies:
-   ```bash
-   npm install
-   ```
-2. Start the development server:
-   ```bash
-   npm run dev
-   ```
-3. Open [http://localhost:5173](http://localhost:5173) in your browser.
+Use Node.js 22.12 or newer and npm.
 
-## Available Scripts
-
-- `npm run dev` — start the local development server.
-- `npm run build` — type-check and create a production build.
-- `npm test` — run the compiler unit tests once.
-- `npm run test:watch` — run tests in watch mode.
-- `npm run lint` — check the codebase with ESLint.
-- `npm run format` — format the source with Prettier.
-
-## Project Structure
-
-```text
-src/
-├── components/layout/        # Shared application shell
-├── config/                   # Site-wide links and configuration
-├── features/compiler/
-│   ├── components/           # Compiler-specific React UI
-│   ├── core/                 # Lexer, parser, validation, AST adapter, TAC
-│   ├── constants.ts          # Example expressions
-│   └── types.ts              # Tokens, AST, tree, and result types
-├── pages/                    # Route-level pages
-├── App.tsx                   # Routes and application layout
-└── main.tsx                  # React entry point
+```sh
+git clone https://github.com/ThePrimeShak/expression-compiler.git
+cd expression-compiler
+npm ci
+npm run dev
 ```
 
-The compiler pipeline is exposed through
-`src/features/compiler/core/analyze-expression.ts`. Keeping that orchestration
-outside React makes the domain logic easier to test and reuse.
+## Available scripts
 
----
+| Command | Purpose |
+| --- | --- |
+| `npm run dev` | Start the development server |
+| `npm run build` | Create the production build |
+| `npm run preview` | Preview the production build |
+| `npm run test` | Run automated tests |
+| `npm run test:watch` | Run tests in watch mode |
+| `npm run lint` | Check code with ESLint |
+| `npm run lint:fix` | Apply ESLint fixes |
+| `npm run format` | Format project files |
+| `npm run format:check` | Check formatting |
 
-This project is for educational purposes and demonstrates the basic steps of compiling and visualizing simple math expressions in a web app.
+## Project structure
+
+- `src/features/compiler/core/` — tokenization, validation, parsing, and code generation.
+- `src/features/compiler/components/` — compiler views and controls.
+- `src/components/layout/` and `src/config/` — shared layout and configuration.
+
+## Scope and limitations
+
+An educational expression compiler with a limited grammar. It does not implement a separate semantic-analysis or optimization pass.
+
+## Author
+
+Built by [ThePrimeShak](https://github.com/ThePrimeShak) · [LinkedIn](https://www.linkedin.com/in/theprimeshak/).
